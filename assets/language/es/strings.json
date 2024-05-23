@@ -236,7 +236,7 @@
   "countryProvince": "País, Provincia",
   "playingCategory": "Categoría en la que juega",
   "sportsSchool": "Escuela deportiva en la que juega",
-  "individualAchievements":"Logros individuales",
+  "individualAchievements": "Logros individuales",
   "nationalTeamSelectionU18": "Selección Nacional Masculina U18",
   "seeMore": "Ver más...",
   "seeLess": "Ver menos...",
@@ -293,7 +293,7 @@
   "Plan_s_1_price": "consultar",
   "Plan_s_1_description": "Desde Nuestra Plataforma, somo conscientes de la gran importancia que tiene la fortaleza mental de un deportista de alto nivel.",
   "Plan_s_1_large_description": "Desde Nuestra Plataforma, somo conscientes de la gran importancia que tiene la fortaleza mental de un deportista de alto nivel. Es por ello, que el Coaching deportivo está cada vez más presente en el día a día de vida deportiva, de ahí nuestra aportación en propuesta de valor personal y deportivo a los usuarios.",
-  
+
   "Plan_s_2_name": "Asesoramiento Deportivo",
   "Plan_s_2_price": "consultar",
   "Plan_s_2_description": "Ante cualquier duda que le pueda surgir a nuestros usuarios para la toma de una determinada decisión deportiva",
@@ -303,7 +303,6 @@
   "Plan_s_3_price": "consultar",
   "Plan_s_3_description": "Dentro del apartado de Representación Deportiva, se informará al usuario que contamos con los mecanismo oportunos",
   "Plan_s_3_large_description": "Dentro del apartado de Representación Deportiva, se informará al usuario que contamos con los mecanismo oportunos y altamente cualificados para prestar los servicios a nuestros usuarios de que puedan disponer de Representación Deportiva a través de nuestra plataforma.",
-
 
   "Plan_s_4_name": "Asesoramiento Legal",
   "Plan_s_4_price": "consultar",
@@ -341,7 +340,7 @@
   "Plan_3_visualization": "Alta",
   "Plan_3_quality_4": "Verificación de perfil opcional",
   "Plan_3_quality_5": "Destacado de vídeos opcional",
-  "Plan_3_quality_6": "Tiempo de vigencia de 6 meses",  
+  "Plan_3_quality_6": "Tiempo de vigencia de 6 meses",
 
   "Plan_4_name": "Unlimited",
   "Plan_4_description": "Dicha suscripción tiene una duración de 12 meses, y posibilita subir videos ilimitados con un máximo de 2min.",
@@ -352,7 +351,18 @@
   "Plan_4_visualization": "Máxima",
   "Plan_4_quality_4": "Verificación de perfil opcional",
   "Plan_4_quality_5": "Destacado de vídeos opcional(1)",
-  "Plan_4_quality_6": "Tiempo de vigencia de 12 meses"
+  "Plan_4_quality_6": "Tiempo de vigencia de 12 meses",
 
-
+  "prebenjamin": "PreBenjamín",
+  "benjamin": "Benjamín",
+  "infantil": "Infantil",
+  "cadete": "Cadete",
+  "juvenil": "Juvenil",
+  "sub23": "Sub-23",
+  "senior": "Senior",
+  "spain": "España",
+  "usa": "Estados Unidos",
+  "france": "Francia",
+  "italy": "Italia",
+  "germany": "Alemania"
 }

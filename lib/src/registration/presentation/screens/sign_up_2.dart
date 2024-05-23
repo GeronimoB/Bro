@@ -27,13 +27,13 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
   late TextEditingController clubController;
   late TextEditingController achivementController;
 
-  String dominantFoot = translations!['left_feet'];
-  String selection = translations!['male'];
+  String dominantFoot = 'left_feet';
+  String selection = 'male';
   String catSelection = 'U15';
-  String selectedCountry = 'España';
+  String selectedCountry = 'spain';
   String selectedProvince = '';
   String selectedHeight = '165 cm';
-  String selectedCategory = 'PreBenjamín';
+  String selectedCategory = 'prebenjamin';
 
   Future<bool> validateForm(BuildContext context) async {
     if (selectedCountry.isEmpty ||
@@ -131,9 +131,6 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                             selectedProvince = '';
                           });
                         },
-                        itemBuilder: (String item) {
-                          return item;
-                        },
                         width: 120,
                       ),
                     ],
@@ -156,14 +153,11 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                       const SizedBox(width: 10),
                       DropdownWidget<String>(
                         value: selectedProvince,
-                        items: provincesByCountry[selectedCountry]!.toList(),
+                        items: provincesByCountry[selectedCountry],
                         onChanged: (String? newValue) {
                           setState(() {
                             selectedProvince = newValue!;
                           });
-                        },
-                        itemBuilder: (String item) {
-                          return item;
                         },
                         width: 120,
                       ),
@@ -193,9 +187,6 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                             selectedHeight = newValue!;
                           });
                         },
-                        itemBuilder: (String item) {
-                          return item;
-                        },
                         width: 120,
                       ),
                     ],
@@ -223,9 +214,6 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                           setState(() {
                             selectedCategory = newValue!;
                           });
-                        },
-                        itemBuilder: (String item) {
-                          return item;
                         },
                         width: 120,
                       ),
@@ -257,12 +245,8 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                         items: piesDominantes,
                         onChanged: (String? newValue) {
                           setState(() {
-                            dominantFoot =
-                                newValue ?? translations!['left_feet'];
+                            dominantFoot = newValue!;
                           });
-                        },
-                        itemBuilder: (String item) {
-                          return item;
                         },
                         width: 120,
                       ),
@@ -288,12 +272,9 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                         items: selecciones,
                         onChanged: (String? newValue) {
                           setState(() {
-                            selection = newValue ?? translations!['male'];
+                            selection = newValue!;
                             catSelection = 'U17';
                           });
-                        },
-                        itemBuilder: (String item) {
-                          return item;
                         },
                         width: 110,
                       ),
@@ -303,11 +284,8 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                         items: nationalCategories[selection],
                         onChanged: (String? newValue) {
                           setState(() {
-                            catSelection = newValue ?? 'U17';
+                            catSelection = newValue!;
                           });
-                        },
-                        itemBuilder: (String item) {
-                          return item;
                         },
                         width: 70,
                       ),

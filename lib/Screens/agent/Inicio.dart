@@ -450,7 +450,7 @@ class InicioPageState extends State<InicioPage> {
   }
 
   Widget loadingWidget() {
-    return  Center(
+    return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -512,7 +512,7 @@ class InicioPageState extends State<InicioPage> {
             ),
           ),
           const SizedBox(height: 10),
-           Text(
+          Text(
             translations!["EndOfVideos"],
             style: const TextStyle(
               fontFamily: 'Montserrat',
@@ -608,7 +608,7 @@ class InicioPageState extends State<InicioPage> {
                       selectedState,
                       provincesByCountry[selectedCountry.text != ''
                           ? selectedCountry.text
-                          : 'España'],
+                          : 'spain'],
                     ),
                     filterTile(
                       translations!['dominant_feet'],
@@ -629,7 +629,7 @@ class InicioPageState extends State<InicioPage> {
                       translations!['national_category'],
                       catSelection,
                       nationalCategories[
-                          selection.text != '' ? selection.text : 'Masculina'],
+                          selection.text != '' ? selection.text : 'male'],
                     ),
                     filterTile(
                       translations!['position_label'],
@@ -666,7 +666,7 @@ class InicioPageState extends State<InicioPage> {
   }
 
   Widget filterTile(
-      String label, TextEditingController value, List<String> items) {
+      String label, TextEditingController value, Map<String, String> items) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -690,9 +690,6 @@ class InicioPageState extends State<InicioPage> {
               value.text = newValue!;
             });
             _fetchVideoUrls();
-          },
-          itemBuilder: (String item) {
-            return item;
           },
           width: 125,
         ),

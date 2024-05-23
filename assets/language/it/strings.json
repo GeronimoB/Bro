@@ -351,7 +351,17 @@
   "Plan_4_visualization": "Massima",
   "Plan_4_quality_4": "Verifica del profilo facoltativa",
   "Plan_4_quality_5": "Evidenziazione dei video facoltativa (1)",
-  "Plan_4_quality_6": "Durata 12 mesi"
-
-
+  "Plan_4_quality_6": "Durata 12 mesi",
+  "prebenjamin": "Pre-Benjamin",
+  "benjamin": "Benjamin",
+  "infantil": "Infantile",
+  "cadete": "Cadetto",
+  "juvenil": "Giovanile",
+  "sub23": "Under-23",
+  "senior": "Senior",
+  "spain": "Spagna",
+  "usa": "Stati Uniti",
+  "france": "Francia",
+  "italy": "Italia",
+  "germany": "Germania"
 }

@@ -1,10 +1,11 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class DropdownWidget<T> extends StatefulWidget {
   const DropdownWidget({
     Key? key,
     required this.items,
-    required this.itemBuilder,
     required this.onChanged,
     required this.value,
     this.header,
@@ -12,11 +13,10 @@ class DropdownWidget<T> extends StatefulWidget {
     this.width = 80,
     this.offsetX = -65,
   }) : super(key: key);
-  final List<T> items;
+  final Map<String, String> items;
   final String? header;
-  final void Function(T value) onChanged;
-  final String Function(T item) itemBuilder;
-  final T value;
+  final void Function(String value) onChanged;
+  final String value;
   final double width;
   final double offsetX;
   final Color? unselectedItemColor;
@@ -74,7 +74,7 @@ class _DropdownWidgetState<T> extends State<DropdownWidget<T>>
             40,
           ),
           link: layerLink,
-          child: _OverlayDropdown<T>(
+          child: _OverlayDropdown(
             width: widget.width,
             selectedValue: widget.value,
             values: widget.items,
@@ -83,7 +83,6 @@ class _DropdownWidgetState<T> extends State<DropdownWidget<T>>
               _changeExpansionStatus(context, offsetX);
               widget.onChanged.call(val);
             },
-            textBuilder: widget.itemBuilder,
           ),
         ),
       ),
@@ -128,7 +127,10 @@ class _DropdownWidgetState<T> extends State<DropdownWidget<T>>
                   SizedBox(
                     width: widget.width * 0.6,
                     child: Text(
-                      widget.itemBuilder.call(widget.value),
+                      widget.items.entries
+                          .firstWhere((entry) => entry.key == widget.value,
+                              orElse: () => const MapEntry('', ''))
+                          .value,
                       style: const TextStyle(
                         color: Colors.white,
                         fontFamily: 'Montserrat',
@@ -160,18 +162,18 @@ class _OverlayDropdown<T> extends StatelessWidget {
   const _OverlayDropdown({
     Key? key,
     required this.values,
-    required this.textBuilder,
     required this.selectedValue,
     required this.onSelectedItem,
     required this.width,
     this.color = Colors.transparent,
   }) : super(key: key);
-  final List<T> values;
+
+  final Map<String, String> values;
   final Color? color;
   final double width;
-  final T selectedValue;
-  final String Function(T item) textBuilder;
-  final void Function(T value) onSelectedItem;
+  final String selectedValue;
+  final void Function(String value) onSelectedItem;
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -189,13 +191,13 @@ class _OverlayDropdown<T> extends StatelessWidget {
         ),
         child: SingleChildScrollView(
           child: Column(
-            children: values
-                .map<_OverlayDropdownItem<T>>(
-                  (e) => _OverlayDropdownItem<T>(
-                    value: e,
-                    textBuilder: textBuilder,
+            children: values.entries
+                .map(
+                  (entry) => _OverlayDropdownItem(
+                    value: entry.key,
+                    displayText: entry.value,
                     onTap: onSelectedItem,
-                    isSelected: e == selectedValue,
+                    isSelected: entry.key == selectedValue,
                   ),
                 )
                 .toList(),
@@ -210,14 +212,16 @@ class _OverlayDropdownItem<T> extends StatelessWidget {
   const _OverlayDropdownItem({
     Key? key,
     required this.value,
-    required this.textBuilder,
+    required this.displayText,
     required this.isSelected,
     required this.onTap,
   }) : super(key: key);
-  final T value;
+
+  final String value;
+  final String displayText;
   final bool isSelected;
-  final String Function(T item) textBuilder;
-  final void Function(T value) onTap;
+  final void Function(String value) onTap;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -231,7 +235,7 @@ class _OverlayDropdownItem<T> extends StatelessWidget {
         height: 32,
         color: Colors.transparent,
         child: Text(
-          textBuilder.call(value),
+          displayText,
           style: TextStyle(
             color: isSelected ? const Color(0xFF00F056) : Colors.white,
             fontFamily: 'Montserrat',

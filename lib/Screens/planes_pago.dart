@@ -15,7 +15,7 @@ List<Plan> planes = [
   Plan(
     idPlan: 'price_1OwbK8IkdX2ffauu5v0rezbw',
     nombre: translations!["Plan_1_name"],
-    precio: translations!["Plan_1_price"],
+    precio: '19,99',
     descripcion: translations!["Plan_1_description"],
     descripcionLarga: translations!["Plan_1_long_description"],
     cualidades: [
@@ -36,7 +36,7 @@ List<Plan> planes = [
   Plan(
     idPlan: 'price_1OwceiIkdX2ffauuyNaKIHHL',
     nombre: translations!["Plan_2_name"],
-    precio: translations!["Plan_2_price"],
+    precio: '29,99',
     descripcion: translations!["Plan_2_description"],
     descripcionLarga: translations!["Plan_2_long_description"],
     cualidades: [
@@ -57,7 +57,7 @@ List<Plan> planes = [
   Plan(
     idPlan: 'price_1Owcf5IkdX2ffauudm4v0KAQ',
     nombre: translations!["Plan_3_name"],
-    precio: translations!["Plan_3_price"],
+    precio: '49,99',
     descripcion: translations!["Plan_3_description"],
     descripcionLarga: translations!["Plan_3_long_description"],
     cualidades: [
@@ -78,7 +78,7 @@ List<Plan> planes = [
   Plan(
     idPlan: 'price_1OwcfMIkdX2ffauuEqdLsX5h',
     nombre: translations!["Plan_4_name"],
-    precio: translations!["Plan_4_price"],
+    precio: '89,99',
     descripcion: translations!["Plan_4_description"],
     descripcionLarga: translations!["Plan_4_long_description"],
     cualidades: [

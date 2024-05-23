@@ -1,5 +1,4 @@
 import 'package:bro_app_to/components/custom_text_button.dart';
-import 'package:bro_app_to/src/registration/presentation/screens/select_camp.dart';
 import 'package:bro_app_to/src/registration/presentation/screens/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:bro_app_to/src/auth/presentation/screens/sign_in.dart';

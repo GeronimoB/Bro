@@ -112,7 +112,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     mailController = TextEditingController();
     lastNameController = TextEditingController();
     referralCodeCtlr = TextEditingController();
-    dniController = TextEditingController();
     directionController = TextEditingController();
   }
 
@@ -124,7 +123,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     mailController.dispose();
     lastNameController.dispose();
     referralCodeCtlr.dispose();
-    dniController.dispose();
     directionController.dispose();
     super.dispose();
   }

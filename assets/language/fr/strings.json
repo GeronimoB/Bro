@@ -235,7 +235,7 @@
   "countryProvince": "Pays, Province",
   "playingCategory": "Catégorie de jeu",
   "sportsSchool": "École sportive",
-  "individualAchievements":"Logros individuales",
+  "individualAchievements": "Logros individuales",
   "nationalTeamSelectionU18": "Sélection nationale masculine U18",
   "seeMore": "Voir plus...",
   "seeLess": "Voir moins...",
@@ -350,7 +350,17 @@
   "Plan_4_visualization": "Maximale",
   "Plan_4_quality_4": "Vérification de profil facultative",
   "Plan_4_quality_5": "Mise en avant de vidéos facultative (1)",
-  "Plan_4_quality_6": "Durée de 12 mois"
-
-
+  "Plan_4_quality_6": "Durée de 12 mois",
+  "prebenjamin": "Pré-Benjamin",
+  "benjamin": "Benjamin",
+  "infantil": "Enfant",
+  "cadete": "Cadet",
+  "juvenil": "Junior",
+  "sub23": "Moins de 23 ans",
+  "senior": "Senior",
+  "spain": "Espagne",
+  "usa": "États-Unis",
+  "france": "France",
+  "italy": "Italie",
+  "germany": "Allemagne"
 }

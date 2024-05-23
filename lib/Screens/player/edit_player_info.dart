@@ -44,7 +44,6 @@ class EditarInfoPlayerState extends State<EditarInfoPlayer> {
   late TextEditingController _clubController;
   late TextEditingController _categoriaSeleccionController;
   late TextEditingController _directionController;
-
   late PlayerProvider provider;
   late PlayerFullModel player;
   final picker = ImagePicker();
@@ -63,7 +62,7 @@ class EditarInfoPlayerState extends State<EditarInfoPlayer> {
     _apellidoController = TextEditingController(text: player.lastName);
     _correoController = TextEditingController(text: player.email);
     _paisController = TextEditingController(
-        text: player.pais!.isNotEmpty ? player.pais : 'España');
+        text: player.pais!.isNotEmpty ? player.pais : 'spain');
     _provinciaController = TextEditingController(text: player.provincia);
     _posicionController = TextEditingController(text: player.position);
     _categoriaController = TextEditingController(text: player.categoria);
@@ -74,7 +73,7 @@ class EditarInfoPlayerState extends State<EditarInfoPlayer> {
     _seleccionNacionalController = TextEditingController(
         text: player.seleccionNacional!.isNotEmpty
             ? player.seleccionNacional
-            : 'Masculina');
+            : 'male');
     _categoriaSeleccionController =
         TextEditingController(text: player.categoriaSeleccion);
     _dniController = TextEditingController(text: player.dni);
@@ -283,7 +282,7 @@ class EditarInfoPlayerState extends State<EditarInfoPlayer> {
                 _buildTextField(
                     label: translations!["Country"],
                     controller: _paisController,
-                    camp: 'pais',
+                    camp: 'pais',   
                     select: true,
                     items: countries),
                 _buildTextField(
@@ -357,7 +356,7 @@ class EditarInfoPlayerState extends State<EditarInfoPlayer> {
     required String camp,
     bool? goToSelCamp,
     bool select = false,
-    List<String> items = const [],
+    Map<String, String> items = const {},
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
@@ -420,7 +419,7 @@ class EditarInfoPlayerState extends State<EditarInfoPlayer> {
     TextEditingController controller,
     String camp, {
     bool select = false,
-    List<String> items = const [],
+    Map<String, String> items = const {},
   }) {
     showDialog(
       context: context,
@@ -473,9 +472,6 @@ class EditarInfoPlayerState extends State<EditarInfoPlayer> {
                               setState(() {
                                 editingController.text = newValue!;
                               });
-                            },
-                            itemBuilder: (String item) {
-                              return item;
                             },
                             width: 300,
                           );

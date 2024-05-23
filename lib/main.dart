@@ -151,6 +151,9 @@ class MySplashScreenState extends State<MySplashScreen> {
 
   Future<void> loadRememberMe() async {
     final prefs = await SharedPreferences.getInstance();
+    final languageCode = prefs.getString('language') ?? 'es';
+    LanguageLocalizations? localizations = LanguageLocalizations.of(context);
+    await localizations!.changeLanguage(languageCode);
     translations = LanguageLocalizations.of(context)!.getJsonTranslate();
     setState(() {
       final String savedUsername = prefs.getString('username') ?? '';

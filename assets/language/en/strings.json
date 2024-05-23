@@ -351,7 +351,17 @@
   "Plan_4_visualization": "Maximum",
   "Plan_4_quality_4": "Optional profile verification",
   "Plan_4_quality_5": "Optional video highlighting(1)",
-  "Plan_4_quality_6": "Validity period of 12 months"
-
-
+  "Plan_4_quality_6": "Validity period of 12 months",
+  "prebenjamin": "PreBenjamin",
+  "benjamin": "Benjamin",
+  "infantil": "Infantil",
+  "cadete": "Cadet",
+  "juvenil": "Juvenile",
+  "sub23": "Under-23",
+  "senior": "Senior",
+  "spain": "Spain",
+  "usa": "United States",
+  "france": "France",
+  "italy": "Italy",
+  "germany": "Germany"
 }

@@ -256,14 +256,18 @@ class PlayerProfileState extends State<PlayerProfile> {
 
                         if (videos.isEmpty) {
                           return Expanded(
-                            child: Center(
-                              child: Text(
-                                translations!["noVideos"],
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.0),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Center(
+                                child: Text(
+                                  translations!["noVideos"],
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ),
                           );

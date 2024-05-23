@@ -531,41 +531,56 @@ class AgregarTarjetaScreenState extends State<AgregarTarjetaScreen> {
 
   Future<void> uploadVideoAndImage(String? videoPath, Uint8List? uint8list,
       String? userId, String? plan) async {
-    var request = http.MultipartRequest(
-      'POST',
-      Uri.parse('${ApiConstants.baseUrl}/auth/uploadFiles'),
-    );
-    request.fields["userId"] = userId ?? '';
-    if (videoPath != null) {
-      request.files.add(await http.MultipartFile.fromPath(
-        'video',
-        videoPath,
-      ));
-    }
-
-    if (uint8list != null) {
-      request.files.add(http.MultipartFile.fromBytes(
-        'imagen',
-        uint8list,
-        filename: 'imagen.png',
-        contentType: MediaType('image', 'png'),
-      ));
-    }
-
-    var response = await request.send();
-
-    // Verificar el estado de la respuesta
-    if (response.statusCode == 200) {
-      Navigator.pop(context);
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-            builder: (context) => plan == "Unlimited"
-                ? const VerificationScreen(
-                    newUser: true,
-                  )
-                : const CustomBottomNavigationBarPlayer()),
+    try {
+      var request = http.MultipartRequest(
+        'POST',
+        Uri.parse('${ApiConstants.baseUrl}/auth/uploadFiles'),
       );
-    } else {
+      request.fields["userId"] = userId ?? '';
+      if (videoPath != null) {
+        request.files.add(await http.MultipartFile.fromPath(
+          'video',
+          videoPath,
+        ));
+      }
+
+      if (uint8list != null) {
+        request.files.add(http.MultipartFile.fromBytes(
+          'imagen',
+          uint8list,
+          filename: 'imagen.png',
+          contentType: MediaType('image', 'png'),
+        ));
+      }
+
+      var response = await request.send();
+
+      // Verificar el estado de la respuesta
+      if (response.statusCode == 200) {
+        Navigator.pop(context);
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+              builder: (context) => plan == "Unlimited"
+                  ? const VerificationScreen(
+                      newUser: true,
+                    )
+                  : const CustomBottomNavigationBarPlayer()),
+        );
+      } else {
+        Navigator.pop(context);
+        showErrorSnackBar(context, translations!['err_upload_first_video']);
+
+        await Future.delayed(const Duration(seconds: 2));
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+              builder: (context) => plan == "Unlimited"
+                  ? const VerificationScreen(
+                      newUser: true,
+                    )
+                  : const CustomBottomNavigationBarPlayer()),
+        );
+      }
+    } catch (e) {
       Navigator.pop(context);
       showErrorSnackBar(context, translations!['err_upload_first_video']);
 

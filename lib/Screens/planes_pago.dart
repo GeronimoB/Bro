@@ -40,6 +40,7 @@ List<Plan> planes = [
     descripcion: translations!["Plan_2_description"],
     descripcionLarga: translations!["Plan_2_long_description"],
     cualidades: [
+      {"text": translations!["Plan_2_quality_11"], "included": true},
       {"text": translations!["Plan_2_quality_1"], "included": true},
       {"text": translations!["Plan_2_quality_2"], "included": true},
       {

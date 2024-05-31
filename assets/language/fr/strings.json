@@ -323,7 +323,7 @@
   "Plan_2_description": "Permet de télécharger 5 vidéos d'une durée maximale de 2 minutes chacune, avec une qualité recommandée de 1080p Full HD.",
   "Plan_2_long_description": "Vous pouvez télécharger une nouvelle vidéo une fois que vous avez atteint la limite de 5, pour cela, vous devez supprimer une vidéo de la plateforme afin que le téléchargement soit effectif et continuer à maintenir vos 5 vidéos actives.",
   "Plan_2_quality_1": "Télécharger jusqu'à 5 vidéos",
-  "Plan_1_quality_11": "Essai de 15 jours",
+  "Plan_2_quality_11": "Essai de 15 jours",
   "Plan_2_quality_2": "Vidéos de jusqu'à 2 minutes",
   "Plan_2_quality_3": "Visualisation : ",
   "Plan_2_visualization": "Moyenne",

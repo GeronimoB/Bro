@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:bro_app_to/components/snackbar.dart';
+import 'package:bro_app_to/components/web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +10,7 @@ import 'package:provider/provider.dart';
 import '../../../../components/custom_text_button.dart';
 import '../../../../components/i_field.dart';
 import '../../../../providers/player_provider.dart';
-
+import 'package:flutter/gestures.dart';
 import '../../../../utils/api_client.dart';
 import '../../../../utils/current_state.dart';
 import '../../../../utils/language_localizations.dart';
@@ -343,6 +344,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   style: const TextStyle(
                                     decoration: TextDecoration.underline,
                                   ),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () => Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => const WebView(
+                                              url:
+                                                  'https://bro.futbol/terminos-condiciones',
+                                              title: 'Terminos y condiciones',
+                                            ),
+                                          ),
+                                        ),
                                 ),
                                 TextSpan(
                                   text: translations!['terms3'],
@@ -350,6 +362,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 ),
                                 TextSpan(
                                   text: translations!['terms4'],
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () => Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => const WebView(
+                                              url:
+                                                  'https://bro.futbol/politica-privacidad-cookies',
+                                              title:
+                                                  'Politica de privacidad y cookies',
+                                            ),
+                                          ),
+                                        ),
                                   style: const TextStyle(
                                     decoration: TextDecoration.underline,
                                   ),

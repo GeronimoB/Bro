@@ -87,9 +87,9 @@ class PlayerProfileToAgentState extends State<PlayerProfileToAgent> {
     String formattedDate =
         birthDate != null ? DateFormat('dd-MM-yyyy').format(birthDate) : '';
     String shortInfo =
-        '${player?.provincia}, ${player?.pais}\n ${translations!["birthdate"]}: $formattedDate';
+        '${provincesByCountry[player?.pais][player?.provincia]}, ${countries[player?.pais]}\n ${translations!["birthdate"]}: $formattedDate';
     String fullInfo =
-        '${player?.provincia}, ${player?.pais}\n ${translations!["birthdate"]}: $formattedDate\n ${translations!["Categorys"]}: ${player?.categoria}\n ${translations!["position_label"]}: ${player?.position}\n ${translations!["club_label"]}: ${player?.club}\n ${translations!["national_selection_short"]}: ${player?.seleccionNacional} ${player?.categoriaSeleccion}\n ${translations!["dominant_feet"]}: ${player?.pieDominante} \n ${translations!["Achievements2"]}: ${player?.logrosIndividuales}  \n ${translations!["height_label"]}: ${player?.altura}';
+        '${provincesByCountry[player?.pais][player?.provincia]}, ${countries[player?.pais]}\n ${translations!["birthdate"]}: $formattedDate\n ${translations!["Categorys"]}: ${categorias[player?.categoria]}\n ${translations!["position_label"]}: ${player?.position}\n ${translations!["club_label"]}: ${player?.club}\n ${translations!["national_selection_short"]}: ${selecciones[player?.seleccionNacional]} ${nationalCategories[player?.seleccionNacional][player?.categoriaSeleccion]}\n ${translations!["dominant_feet"]}: ${piesDominantes[player?.pieDominante]} \n ${translations!["Achievements2"]}: ${player?.logrosIndividuales}  \n ${translations!["height_label"]}: ${player?.altura}';
 
     return Container(
       decoration: const BoxDecoration(
@@ -188,7 +188,9 @@ class PlayerProfileToAgentState extends State<PlayerProfileToAgent> {
                 });
               },
               child: Text(
-                _isExpanded ? translations!['seeLess'] : translations!['seseeMoreeLess'],
+                _isExpanded
+                    ? translations!['seeLess']
+                    : translations!['seseeMoreeLess'],
                 style: const TextStyle(
                     color: Color(0xFF05FF00),
                     fontSize: 16.0,

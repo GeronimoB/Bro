@@ -179,22 +179,24 @@ class _MatchProfileState extends State<MatchProfile> {
                             ),
                         ],
                       ),
-                      _buildDataRow(
-                          context, '${translations!["BirthDate"]}: $formattedDate'),
                       _buildDataRow(context,
-                          '${translations!["state_label"]}: ${userData.provincia}, ${userData.pais}'),
-                      _buildDataRow(context, '${translations!["height_label"]}: ${userData.altura}'),
-                      _buildDataRow(
-                          context, '${translations!["dominant_feet"]}: ${userData.pieDominante}'),
-                      _buildDataRow(context, '${translations!["position_label"]}: ${userData.position}'),
-                      _buildDataRow(
-                          context, '${translations!["Categorys"]}: ${userData.categoria}'),
-                      _buildDataRow(
-                          context, '${translations!["SportsSchool"]}: ${userData.club}'),
+                          '${translations!["BirthDate"]}: $formattedDate'),
+                      _buildDataRow(context,
+                          '${translations!["state_label"]}: ${provincesByCountry[userData.pais][userData.provincia]}, ${countries[userData.pais]}'),
+                      _buildDataRow(context,
+                          '${translations!["height_label"]}: ${userData.altura}'),
+                      _buildDataRow(context,
+                          '${translations!["dominant_feet"]}: ${piesDominantes[userData.pieDominante]}'),
+                      _buildDataRow(context,
+                          '${translations!["position_label"]}: ${userData.position}'),
+                      _buildDataRow(context,
+                          '${translations!["Categorys"]}: ${categorias[userData.categoria]}'),
+                      _buildDataRow(context,
+                          '${translations!["SportsSchool"]}: ${userData.club}'),
                       _buildDataRow(context,
                           '${translations!["IndividualAchievements"]}: ${userData.logrosIndividuales}'),
                       _buildDataRow(context,
-                          '${translations!["Selections"]}: ${userData.seleccionNacional} ${userData.categoriaSeleccion}'),
+                          '${translations!["Selections"]}: ${selecciones[userData.seleccionNacional]} ${nationalCategories[userData.seleccionNacional][userData.categoriaSeleccion]}'),
                       const SizedBox(height: 20),
                       CustomTextButton(
                           onTap: () {

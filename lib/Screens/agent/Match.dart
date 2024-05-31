@@ -260,14 +260,14 @@ class MatcheState extends State<Matche> {
                           ],
                         ),
                         Text(
-                          '$formattedDate - ${player.categoria}',
+                          '$formattedDate - ${categorias[player.categoria]}',
                           style: TextStyle(
                               fontSize: 14.0,
                               color: Colors.white.withOpacity(0.7),
                               fontStyle: FontStyle.italic),
                         ),
                         Text(
-                          '${player.provincia}, ${player.pais}',
+                          '${provincesByCountry[player.pais][player.provincia]}, ${countries[player.pais]}',
                           style: TextStyle(
                               fontSize: 14.0,
                               color: Colors.white.withOpacity(0.7),

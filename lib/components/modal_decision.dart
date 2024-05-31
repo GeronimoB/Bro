@@ -64,7 +64,7 @@ class _ModalDecitionState extends State<ModalDecition> {
                     onTap: () {
                       widget.cancelCallback.call();
                     },
-                    text: translations!["no"],
+                    text: translations!["not"],
                     buttonPrimary: false,
                     width: 60,
                     height: 35),

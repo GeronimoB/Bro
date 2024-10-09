@@ -41,11 +41,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
       String name, String lastName, DateTime fecha, String password) async {
     if (email.isEmpty ||
         lastName.isEmpty ||
-        dniController.text.isEmpty ||
         fecha == DateTime.now() ||
         password.isEmpty ||
         name.isEmpty ||
-        dniController.text.isEmpty ||
         directionController.text.isEmpty) {
       showErrorSnackBar(context, translations!['complete_all_fields']);
 

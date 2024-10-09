@@ -51,7 +51,7 @@ class _ConfigProfileState extends State<ConfigProfile> {
           centerTitle: true,
           title: Column(
             children: [
-              const SizedBox(height: 22),
+              const SizedBox(height: 12),
               Text(
                 '${user.name} ${user.lastName}',
                 style: const TextStyle(
@@ -96,8 +96,8 @@ class _ConfigProfileState extends State<ConfigProfile> {
                 child: ListView(
                   children: [
                     const SizedBox(height: 22),
-                    _buildListItem(
-                        translations!["EditInformation"], context, true, EditarInfo()),
+                    _buildListItem(translations!["EditInformation"], context,
+                        true, EditarInfo()),
                     _buildListItem(
                       translations!['change_pss'],
                       context,
@@ -108,12 +108,12 @@ class _ConfigProfileState extends State<ConfigProfile> {
                       },
                     ),
                     const SizedBox(height: 15),
-                    _buildListItem(translations!["HelpCenter(FAQ)"], context, false,
+                    _buildListItem(translations!["HelpCenter(FAQ)"], context,
+                        false, const ConfigProfile()),
+                    _buildListItem(translations!["Support"], context, false,
                         const ConfigProfile()),
-                    _buildListItem(
-                        translations!["Support"], context, false, const ConfigProfile()),
-                    _buildListItem(translations!["Notifications"], context, true,
-                        const Notificaciones()),
+                    _buildListItem(translations!["Notifications"], context,
+                        true, const Notificaciones()),
                     _buildListItem(
                       translations!["Affiliates"],
                       context,
@@ -141,14 +141,12 @@ class _ConfigProfileState extends State<ConfigProfile> {
                       },
                     ),
                     const SizedBox(height: 15),
-                    _buildListItem(
-                        translations!["DeleteAccount"], context, false, const Servicios(),
-                        callback: () {
+                    _buildListItem(translations!["DeleteAccount"], context,
+                        false, const Servicios(), callback: () {
                       handleDeleteAccount(context);
                     }),
-                    _buildListItem(
-                        translations!["LogOut"], context, false, const Servicios(),
-                        callback: () {
+                    _buildListItem(translations!["LogOut"], context, false,
+                        const Servicios(), callback: () {
                       handleLogOut(context);
                     }),
                   ],
@@ -518,18 +516,18 @@ class _ConfigProfileState extends State<ConfigProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  languageTile(
-                      context, 'en', translations!["english"], currentLanguage == 'en'),
-                  languageTile(
-                      context, 'es', translations!["spanish"], currentLanguage == 'es'),
-                  languageTile(
-                      context, 'de', translations!["german"], currentLanguage == 'de'),
-                  languageTile(
-                      context, 'it', translations!["italian"], currentLanguage == 'it'),
-                  languageTile(
-                      context, 'fr', translations!["french"], currentLanguage == 'fr'),
-                  languageTile(
-                      context, 'pt', translations!["portuguese"], currentLanguage == 'pt'),
+                  languageTile(context, 'en', translations!["english"],
+                      currentLanguage == 'en'),
+                  languageTile(context, 'es', translations!["spanish"],
+                      currentLanguage == 'es'),
+                  languageTile(context, 'de', translations!["german"],
+                      currentLanguage == 'de'),
+                  languageTile(context, 'it', translations!["italian"],
+                      currentLanguage == 'it'),
+                  languageTile(context, 'fr', translations!["french"],
+                      currentLanguage == 'fr'),
+                  languageTile(context, 'pt', translations!["portuguese"],
+                      currentLanguage == 'pt'),
                   const SizedBox(
                     height: 10,
                   ),

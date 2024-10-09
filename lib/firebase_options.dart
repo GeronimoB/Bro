@@ -23,10 +23,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -55,6 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1041057820042',
     projectId: 'bro-app-ef8ef',
     authDomain: 'bro-app-ef8ef.firebaseapp.com',
+    databaseURL: 'https://bro-app-ef8ef-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'bro-app-ef8ef.appspot.com',
     measurementId: 'G-4RK2GXRT0E',
   );
@@ -64,6 +62,18 @@ class DefaultFirebaseOptions {
     appId: '1:1041057820042:android:e63c5f40c7840166bdac73',
     messagingSenderId: '1041057820042',
     projectId: 'bro-app-ef8ef',
+    databaseURL: 'https://bro-app-ef8ef-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'bro-app-ef8ef.appspot.com',
   );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyA-9C2-Gf-7B-WH7ODJHDCvop5dr3TZZk4',
+    appId: '1:1041057820042:ios:49091e3548042ca3bdac73',
+    messagingSenderId: '1041057820042',
+    projectId: 'bro-app-ef8ef',
+    databaseURL: 'https://bro-app-ef8ef-default-rtdb.europe-west1.firebasedatabase.app',
+    storageBucket: 'bro-app-ef8ef.appspot.com',
+    iosBundleId: 'com.esloogan.broapp',
+  );
+
 }

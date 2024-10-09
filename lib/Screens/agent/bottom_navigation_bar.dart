@@ -137,6 +137,7 @@ class CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             Text(
               labels[index],
               style: TextStyle(
+                fontSize: 12,
                 color: _selectedIndex == index
                     ? Colors.white
                     : Colors.white.withOpacity(0.8),

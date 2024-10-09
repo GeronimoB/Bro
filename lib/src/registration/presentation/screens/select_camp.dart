@@ -108,8 +108,8 @@ class SelectCampState extends State<SelectCamp> {
     }),
     Player(position: translations!['DC'], number: "9", posiciones: {
       "phone": {
-        "top": 0.51,
-        "left": 0.475,
+        "top": 0.50,
+        "left": 0.49,
       },
       "tablet": {
         "top": 0.50,
@@ -454,8 +454,8 @@ class SelectCampState extends State<SelectCamp> {
             child: Column(
               children: [
                 Container(
-                  width: 35,
-                  height: 35,
+                  width: 39,
+                  height: 39,
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: player.isSelected

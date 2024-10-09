@@ -61,14 +61,15 @@ class MensajesPage extends StatelessWidget {
                 } else if (snapshot.hasError) {
                   return Expanded(
                     child: Center(
-                      child: Text('${translations!["error"]}: ${snapshot.error}'),
+                      child:
+                          Text('${translations!["error"]}: ${snapshot.error}'),
                     ),
                   );
                 } else {
                   final messagesWithUsers = snapshot.data ?? [];
 
                   if (messagesWithUsers.isEmpty) {
-                    return  Expanded(
+                    return Expanded(
                       child: Center(
                         child: Text(
                           translations!["noMessages"],
@@ -182,7 +183,7 @@ class _ChatWidgetState extends State<ChatWidget>
     String fullName =
         '${widget.chat.friendUser.name} ${widget.chat.friendUser.lastName}';
     String trimmedName =
-        fullName.length > 18 ? fullName.substring(0, 18) + '...' : fullName;
+        fullName.length > 16 ? fullName.substring(0, 16) + '...' : fullName;
 
     return Slidable(
       key: widget.key!,
@@ -242,7 +243,7 @@ class _ChatWidgetState extends State<ChatWidget>
             children: [
               const SizedBox(width: 16.0),
               chatAvatar(widget.chat.count, widget.chat.friendUser.imageUrl),
-              const SizedBox(width: 30.0),
+              const SizedBox(width: 18.0),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

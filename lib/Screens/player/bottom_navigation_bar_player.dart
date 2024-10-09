@@ -95,7 +95,7 @@ class CustomBottomNavigationBarPlayerState
     final labels = ['Inicio', 'Match', '', 'Mensajes', 'Perfil'];
 
     return SizedBox(
-      width: 75,
+      width: 80,
       child: InkWell(
         onTap: () => _onItemTapped(index),
         child: Column(
@@ -128,7 +128,7 @@ class CustomBottomNavigationBarPlayerState
                                   child: Text(
                                     provider.unreadTotalMessages.toString(),
                                     style: const TextStyle(
-                                      fontSize: 11,
+                                      fontSize: 10,
                                       color: Color(0xff00E050),
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -148,6 +148,7 @@ class CustomBottomNavigationBarPlayerState
             Text(
               labels[index],
               style: TextStyle(
+                fontSize: 12,
                 color: _selectedIndex == index
                     ? Colors.white
                     : Colors.white.withOpacity(0.8),

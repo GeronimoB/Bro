@@ -46,14 +46,14 @@ class _ConfigProfilePlayerState extends State<ConfigProfilePlayer> {
         centerTitle: true,
         title: Column(
           children: [
-            const SizedBox(height: 22),
+            const SizedBox(height: 12),
             Text(
               '${user.name} ${user.lastName}',
               style: const TextStyle(
                 color: Color(0xFF05FF00),
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.bold,
-                fontSize: 12,
+                fontSize: 11,
               ),
             ),
             appBarTitle(translations!["SETTING"]),

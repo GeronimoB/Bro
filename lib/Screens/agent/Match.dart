@@ -354,8 +354,8 @@ class MatcheState extends State<Matche> {
                                         )));
                           },
                           text: translations!['goToChat'],
-                          buttonPrimary: false,
-                          width: 145,
+                          buttonPrimary: false, 
+                          width: 182,
                           height: 38),
                       CustomTextButton(
                           onTap: () => Navigator.push(

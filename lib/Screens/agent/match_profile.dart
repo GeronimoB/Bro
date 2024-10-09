@@ -197,21 +197,27 @@ class _MatchProfileState extends State<MatchProfile> {
                           '${translations!["IndividualAchievements"]}: ${userData.logrosIndividuales}'),
                       _buildDataRow(context,
                           '${translations!["Selections"]}: ${selecciones[userData.seleccionNacional]} ${nationalCategories[userData.seleccionNacional][userData.categoriaSeleccion]}'),
-                      const SizedBox(height: 20),
+                      const SizedBox(
+                        height: 15,
+                      ),
                       CustomTextButton(
-                          onTap: () {
-                            final friend = UserModel.fromPlayer(userData);
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ChatPage(
-                                          friend: friend,
-                                        )));
-                          },
-                          text: translations!["goToChat"],
-                          buttonPrimary: false,
-                          width: 154,
-                          height: 40),
+                        onTap: () {
+                          final friend = UserModel.fromPlayer(userData);
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ChatPage(
+                                        friend: friend,
+                                      )));
+                        },
+                        text: translations!["goToChat"],
+                        buttonPrimary: false,
+                        width: 180,
+                        height: 40,
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
                     ],
                   ),
                 ),
@@ -240,21 +246,19 @@ class _MatchProfileState extends State<MatchProfile> {
   }
 
   Widget _buildDataRow(BuildContext context, String value) {
-    return Padding(
+    return Container(
+      width: double.maxFinite,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            value,
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.white,
-              fontFamily: 'Montserrat',
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
+      child: Text(
+        value,
+        style: const TextStyle(
+          fontSize: 16,
+          color: Colors.white,
+          fontFamily: 'Montserrat',
+        ),
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.clip,
+        maxLines: 2,
       ),
     );
   }

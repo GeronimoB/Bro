@@ -298,7 +298,7 @@ class PedidosState extends State<Pedidos> {
                       onTap: () {
                         _handleDownload(pedido.url);
                       },
-                      text:translations!["Dfacture"],
+                      text: translations!["Dfacture"],
                       buttonPrimary: true,
                       width: 164,
                       height: 31),

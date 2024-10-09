@@ -102,7 +102,7 @@ class PlayerProfileState extends State<PlayerProfile> {
     String shortInfo =
         '${provincesByCountry[player.pais][player.provincia]}, ${countries[player.pais]}\n ${translations!["birthdate"]}: $formattedDate';
     String fullInfo =
-        '${provincesByCountry[player.pais][player.provincia]}, ${countries[player.pais]}\n ${translations!["birthdate"]}: $formattedDate\n ${translations!["Categorys"]}: ${categorias[player.categoria]}\n ${translations!["position_label"]}: ${player.position}\n ${translations!["club_label"]}: ${player.club}\n ${translations!["national_selection_short"]}: ${selecciones[player.seleccionNacional]} ${nationalCategories[player.seleccionNacional][player.categoriaSeleccion]}\n ${translations!["dominant_feet"]}: ${piesDominantes[player.pieDominante]} \n ${translations!["Achievements2"]}: ${player.logrosIndividuales}  \n ${translations!["height_label"]}: ${player.altura}';
+        '${provincesByCountry[player.pais][player.provincia]}, ${countries[player.pais]}\n ${translations!["birthdate"]}: $formattedDate\n ${translations!["Categorys"]}: ${categorias[player.categoria]}\n ${posiciones[translations!["position_label"]]}: ${player.position}\n ${translations!["club_label"]}: ${player.club}\n ${translations!["national_selection_short"]}: ${selecciones[player.seleccionNacional]} ${nationalCategories[player.seleccionNacional][player.categoriaSeleccion]}\n ${translations!["dominant_feet"]}: ${piesDominantes[player.pieDominante]} \n ${translations!["Achievements2"]}: ${player.logrosIndividuales}  \n ${translations!["height_label"]}: ${player.altura}';
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(

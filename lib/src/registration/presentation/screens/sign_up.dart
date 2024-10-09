@@ -277,23 +277,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         if (value.length < 8) {
                           return translations!['pssw_8_characters'];
                         }
-                        // Verifica si contiene al menos una mayúscula
-                        if (!value.contains(RegExp(r'[A-Z]'))) {
-                          return translations!['pssw_mayus_letter'];
-                        }
-                        // Verifica si contiene al menos una minúscula
-                        if (!value.contains(RegExp(r'[a-z]'))) {
-                          return translations!['pssw_minus_letter'];
-                        }
-                        // Verifica si contiene al menos un número
-                        if (!value.contains(RegExp(r'[0-9]'))) {
-                          return translations!['pssw_number'];
-                        }
-                        // Verifica si contiene al menos un carácter especial
-                        if (!value
-                            .contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-                          return translations!['pssw_special'];
-                        }
+                        // if (!value.contains(RegExp(r'[A-Z]'))) {
+                        //   return translations!['pssw_mayus_letter'];
+                        // }
+                        // if (!value.contains(RegExp(r'[a-z]'))) {
+                        //   return translations!['pssw_minus_letter'];
+                        // }
+                        // if (value.replaceAll(RegExp(r'\D'), '').length < 8) {
+                        //   return translations!['pssw_number'];
+                        // }
                         return null; // Retorna null si la contraseña cumple con todos los requisitos
                       },
                     ),

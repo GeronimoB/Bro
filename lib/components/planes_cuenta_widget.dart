@@ -96,7 +96,9 @@ class _PlanesCuentaWidgetState extends State<PlanesCuentaWidget> {
                     widget.cancelModal(context, playerProvider);
                   }
                 },
-                text: isActualPlan ? translations!["cancel"] : translations!["subscribe"],
+                text: isActualPlan
+                    ? translations!["cancel"]
+                    : translations!["subscribe"],
                 buttonPrimary: true,
                 width: 116,
                 height: 42,

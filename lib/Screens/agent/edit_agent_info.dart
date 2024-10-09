@@ -34,10 +34,31 @@ class EditarInfoState extends State<EditarInfo> {
   late AgenteProvider provider;
   late Agente agente;
   final picker = ImagePicker();
+  final ScrollController _scrollController = ScrollController();
+  Color _appBarColor = Colors.transparent;
 
   @override
   void initState() {
     super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    if (_scrollController.offset > 50) {
+      setState(() {
+        _appBarColor = Colors.black.withOpacity(0.9);
+      });
+    } else {
+      setState(() {
+        _appBarColor = Colors.transparent;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -113,8 +134,9 @@ class EditarInfoState extends State<EditarInfo> {
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: _appBarColor,
         body: SingleChildScrollView(
+          controller: _scrollController,
           child: Column(
             children: <Widget>[
               const SizedBox(height: 20),
@@ -175,13 +197,15 @@ class EditarInfoState extends State<EditarInfo> {
               ),
               const SizedBox(height: 20),
               _buildTextField(
-                  label: translations!["Name"], controller: _nombreController, camp: 'name'),
+                  label: translations!["Name"],
+                  controller: _nombreController,
+                  camp: 'name'),
               _buildTextField(
                   label: translations!["Last_name"],
                   controller: _apellidoController,
                   camp: 'lastname'),
               _buildTextField(
-                  label:  translations!["Email"],
+                  label: translations!["Email"],
                   controller: _correoController,
                   camp: 'email'),
               _buildTextField(
@@ -189,7 +213,9 @@ class EditarInfoState extends State<EditarInfo> {
                   controller: _usuarioController,
                   camp: 'username'),
               _buildTextField(
-                  label: translations!["Country"], controller: _paisController, camp: 'pais'),
+                  label: translations!["Country"],
+                  controller: _paisController,
+                  camp: 'pais'),
               _buildTextField(
                   label: translations!["Province"],
                   controller: _provinciaController,

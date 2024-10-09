@@ -25,6 +25,32 @@ class MatchProfile extends StatefulWidget {
 
 class _MatchProfileState extends State<MatchProfile> {
   late UserProvider provider;
+  final ScrollController _scrollController = ScrollController();
+  Color _appBarColor = Colors.transparent;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    if (_scrollController.offset > 50) {
+      setState(() {
+        _appBarColor = Colors.black.withOpacity(0.9);
+      });
+    } else {
+      setState(() {
+        _appBarColor = Colors.transparent;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   void didChangeDependencies() {
@@ -91,7 +117,7 @@ class _MatchProfileState extends State<MatchProfile> {
         appBar: AppBar(
           scrolledUnderElevation: 0,
           centerTitle: true,
-          backgroundColor: Colors.transparent,
+          backgroundColor: _appBarColor,
           elevation: 0,
           leading: IconButton(
             icon: const Icon(
@@ -131,6 +157,7 @@ class _MatchProfileState extends State<MatchProfile> {
                   ? DateFormat('dd-MM-yyyy').format(birthDate)
                   : '';
               return SingleChildScrollView(
+                controller: _scrollController,
                 padding: const EdgeInsets.all(0),
                 child: SizedBox(
                   height: availableHeight,

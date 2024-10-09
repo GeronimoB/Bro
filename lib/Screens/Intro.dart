@@ -1,4 +1,5 @@
 import 'package:bro_app_to/components/custom_text_button.dart';
+import 'package:bro_app_to/src/registration/presentation/screens/select_camp.dart';
 import 'package:bro_app_to/src/registration/presentation/screens/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:bro_app_to/src/auth/presentation/screens/sign_in.dart';
@@ -58,18 +59,18 @@ class SignInPageState extends State<SignInPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  languageTile(
-                      context, 'en', translations!["english"], currentLanguage == 'en'),
-                  languageTile(
-                      context, 'es', translations!["spanish"], currentLanguage == 'es'),
-                  languageTile(
-                      context, 'de', translations!["german"], currentLanguage == 'de'),
-                  languageTile(
-                      context, 'it', translations!["italian"], currentLanguage == 'it'),
-                  languageTile(
-                      context, 'fr', translations!["french"], currentLanguage == 'fr'),
-                  languageTile(
-                      context, 'pt', translations!["portuguese"], currentLanguage == 'pt'),
+                  languageTile(context, 'en', translations!["english"],
+                      currentLanguage == 'en'),
+                  languageTile(context, 'es', translations!["spanish"],
+                      currentLanguage == 'es'),
+                  languageTile(context, 'de', translations!["german"],
+                      currentLanguage == 'de'),
+                  languageTile(context, 'it', translations!["italian"],
+                      currentLanguage == 'it'),
+                  languageTile(context, 'fr', translations!["french"],
+                      currentLanguage == 'fr'),
+                  languageTile(context, 'pt', translations!["portuguese"],
+                      currentLanguage == 'pt'),
                   const SizedBox(
                     height: 10,
                   ),
@@ -191,7 +192,8 @@ class SignInPageState extends State<SignInPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const SignUpScreen()),
+                                builder: (context) => const SignUpScreen(),
+                              ),
                             );
                           },
                           text: translations!['create_account'],

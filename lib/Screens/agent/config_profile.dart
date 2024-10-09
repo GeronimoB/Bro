@@ -96,8 +96,8 @@ class _ConfigProfileState extends State<ConfigProfile> {
                 child: ListView(
                   children: [
                     const SizedBox(height: 22),
-                    _buildListItem(
-                        translations!["EditInformation"], context, true, EditarInfo()),
+                    _buildListItem(translations!["EditInformation"], context,
+                        true, EditarInfo()),
                     _buildListItem(
                       translations!['change_pss'],
                       context,
@@ -108,12 +108,12 @@ class _ConfigProfileState extends State<ConfigProfile> {
                       },
                     ),
                     const SizedBox(height: 15),
-                    _buildListItem(translations!["HelpCenter(FAQ)"], context, false,
+                    _buildListItem(translations!["HelpCenter(FAQ)"], context,
+                        false, const ConfigProfile()),
+                    _buildListItem(translations!["Support"], context, false,
                         const ConfigProfile()),
-                    _buildListItem(
-                        translations!["Support"], context, false, const ConfigProfile()),
-                    _buildListItem(translations!["Notifications"], context, true,
-                        const Notificaciones()),
+                    _buildListItem(translations!["Notifications"], context,
+                        true, const Notificaciones()),
                     _buildListItem(
                       translations!["Affiliates"],
                       context,
@@ -141,14 +141,12 @@ class _ConfigProfileState extends State<ConfigProfile> {
                       },
                     ),
                     const SizedBox(height: 15),
-                    _buildListItem(
-                        translations!["DeleteAccount"], context, false, const Servicios(),
-                        callback: () {
+                    _buildListItem(translations!["DeleteAccount"], context,
+                        false, const Servicios(), callback: () {
                       handleDeleteAccount(context);
                     }),
-                    _buildListItem(
-                        translations!["LogOut"], context, false, const Servicios(),
-                        callback: () {
+                    _buildListItem(translations!["LogOut"], context, false,
+                        const Servicios(), callback: () {
                       handleLogOut(context);
                     }),
                   ],
@@ -367,19 +365,16 @@ class _ConfigProfileState extends State<ConfigProfile> {
                       if (value.length < 8) {
                         return translations!['pssw_8_characters'];
                       }
-                      if (!value.contains(RegExp(r'[A-Z]'))) {
-                        return translations!['pssw_mayus_letter'];
-                      }
-                      if (!value.contains(RegExp(r'[a-z]'))) {
-                        return translations!['pssw_minus_letter'];
-                      }
-                      if (!value.contains(RegExp(r'[0-9]'))) {
-                        return translations!['pssw_number'];
-                      }
+                      // if (!value.contains(RegExp(r'[A-Z]'))) {
+                      //   return translations!['pssw_mayus_letter'];
+                      // }
+                      // if (!value.contains(RegExp(r'[a-z]'))) {
+                      //   return translations!['pssw_minus_letter'];
+                      // }
+                      // if (value.replaceAll(RegExp(r'\D'), '').length < 8) {
+                      //   return translations!['pssw_number'];
+                      // }
 
-                      if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-                        return translations!['pssw_special'];
-                      }
                       return null;
                     },
                   ),
@@ -433,7 +428,7 @@ class _ConfigProfileState extends State<ConfigProfile> {
                   children: [
                     CustomTextButton(
                       onTap: () => Navigator.of(context).pop(),
-                      text: translations!['Cancelar'],
+                      text: translations!['cancel'],
                       buttonPrimary: false,
                       width: 90,
                       height: 27,
@@ -518,18 +513,18 @@ class _ConfigProfileState extends State<ConfigProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  languageTile(
-                      context, 'en', translations!["english"], currentLanguage == 'en'),
-                  languageTile(
-                      context, 'es', translations!["spanish"], currentLanguage == 'es'),
-                  languageTile(
-                      context, 'de', translations!["german"], currentLanguage == 'de'),
-                  languageTile(
-                      context, 'it', translations!["italian"], currentLanguage == 'it'),
-                  languageTile(
-                      context, 'fr', translations!["french"], currentLanguage == 'fr'),
-                  languageTile(
-                      context, 'pt', translations!["portuguese"], currentLanguage == 'pt'),
+                  languageTile(context, 'en', translations!["english"],
+                      currentLanguage == 'en'),
+                  languageTile(context, 'es', translations!["spanish"],
+                      currentLanguage == 'es'),
+                  languageTile(context, 'de', translations!["german"],
+                      currentLanguage == 'de'),
+                  languageTile(context, 'it', translations!["italian"],
+                      currentLanguage == 'it'),
+                  languageTile(context, 'fr', translations!["french"],
+                      currentLanguage == 'fr'),
+                  languageTile(context, 'pt', translations!["portuguese"],
+                      currentLanguage == 'pt'),
                   const SizedBox(
                     height: 10,
                   ),

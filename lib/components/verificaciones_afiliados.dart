@@ -117,106 +117,110 @@ class VerificationReferralState extends State<VerificationReferral> {
         ),
         child: Stack(
           children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  translations!['company_or_autum'],
-                  style: const TextStyle(
-                    fontFamily: 'Montserrat',
-                    color: Color(0xff00E050),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                  ),
-                ),
-                const SizedBox(height: 5),
-                if (showUploadFiles) ...[
-                  SizedBox(
-                    width: double.maxFinite,
-                    child: Text(
-                      translations!['upload_doc'],
-                      style: const TextStyle(
-                        fontFamily: 'Montserrat',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 11,
-                        fontStyle: FontStyle.italic,
-                      ),
+            if (!isLoading)
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    translations!['company_or_autum'],
+                    style: const TextStyle(
+                      fontFamily: 'Montserrat',
+                      color: Color(0xff00E050),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  _buildTextField(
-                      label: translations!["036orCIFDocument"],
-                      camp: 'documento'),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    width: double.maxFinite,
-                    child: Text(
-                      translations!['upload_dni'],
-                      style: const TextStyle(
-                        fontFamily: 'Montserrat',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 11,
-                        fontStyle: FontStyle.italic,
+                  const SizedBox(height: 5),
+                  if (showUploadFiles) ...[
+                    SizedBox(
+                      width: double.maxFinite,
+                      child: Text(
+                        translations!['upload_doc'],
+                        style: const TextStyle(
+                          fontFamily: 'Montserrat',
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11,
+                          fontStyle: FontStyle.italic,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                  _buildTextField(
-                      label: translations!["Front_ID"], camp: 'dni_frontal'),
-                  _buildTextField(
-                      label: translations!["Back_ID"], camp: 'dni_trasero'),
-                  const SizedBox(height: 35),
-                  Center(
-                    child: CustomTextButton(
-                      onTap: () {
-                        _uploadFiles();
-                      },
-                      text: translations!['send'],
-                      buttonPrimary: true,
-                      width: 90,
-                      height: 27,
-                    ),
-                  ),
-                ],
-                if (!showUploadFiles) ...[
-                  const SizedBox(height: 35),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CustomTextButton(
-                        onTap: () => Navigator.of(context).pop(),
-                        text: translations!['not'],
-                        buttonPrimary: false,
-                        width: 90,
-                        height: 27,
+                    const SizedBox(height: 10),
+                    _buildTextField(
+                        label: translations!["036orCIFDocument"],
+                        camp: 'documento'),
+                    const SizedBox(height: 10),
+                    SizedBox(
+                      width: double.maxFinite,
+                      child: Text(
+                        translations!['upload_dni'],
+                        style: const TextStyle(
+                          fontFamily: 'Montserrat',
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11,
+                          fontStyle: FontStyle.italic,
+                        ),
                       ),
-                      CustomTextButton(
+                    ),
+                    const SizedBox(height: 20),
+                    _buildTextField(
+                        label: translations!["Front_ID"], camp: 'dni_frontal'),
+                    _buildTextField(
+                        label: translations!["Back_ID"], camp: 'dni_trasero'),
+                    const SizedBox(height: 35),
+                    Center(
+                      child: CustomTextButton(
                         onTap: () {
-                          setState(() {
-                            showUploadFiles = true;
-                          });
+                          _uploadFiles();
                         },
-                        text: translations!['yes'],
+                        text: translations!['send'],
                         buttonPrimary: true,
                         width: 90,
                         height: 27,
                       ),
-                    ],
-                  ),
-                ]
-              ],
-            ),
+                    ),
+                  ],
+                  if (!showUploadFiles) ...[
+                    const SizedBox(height: 35),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CustomTextButton(
+                          onTap: () => Navigator.of(context).pop(),
+                          text: translations!['not'],
+                          buttonPrimary: false,
+                          width: 90,
+                          height: 27,
+                        ),
+                        CustomTextButton(
+                          onTap: () {
+                            setState(() {
+                              showUploadFiles = true;
+                            });
+                          },
+                          text: translations!['yes'],
+                          buttonPrimary: true,
+                          width: 90,
+                          height: 27,
+                        ),
+                      ],
+                    ),
+                  ]
+                ],
+              ),
             if (isLoading)
-              const Expanded(
-                child: Center(
-                  child: CircularProgressIndicator(
-                    valueColor:
-                        AlwaysStoppedAnimation<Color>(Color(0xFF05FF00)),
+              const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: CircularProgressIndicator(
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(Color(0xFF05FF00)),
+                    ),
                   ),
-                ),
+                ],
               ),
           ],
         ),

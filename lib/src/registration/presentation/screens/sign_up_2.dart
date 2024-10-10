@@ -36,10 +36,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
   String selectedCategory = 'prebenjamin';
 
   Future<bool> validateForm(BuildContext context) async {
-    if (selectedCountry.isEmpty ||
-        selectedProvince.isEmpty ||
-        clubController.text.isEmpty ||
-        achivementController.text.isEmpty) {
+    if (selectedCountry.isEmpty || selectedProvince.isEmpty) {
       showErrorSnackBar(context, translations!['complete_all_fields']);
 
       setState(() {

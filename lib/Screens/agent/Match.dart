@@ -32,6 +32,32 @@ class MatcheState extends State<Matche> {
   late UserProvider provider;
   late UserModel user;
   bool isLoading = false;
+  final ScrollController _scrollController = ScrollController();
+  Color _appBarColor = Colors.transparent;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    if (_scrollController.offset > 50) {
+      setState(() {
+        _appBarColor = Colors.black.withOpacity(0.9);
+      });
+    } else {
+      setState(() {
+        _appBarColor = Colors.transparent;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   Future<void> fetchAgentMatches(String currentUserId) async {
     setState(() {
@@ -80,11 +106,6 @@ class MatcheState extends State<Matche> {
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     provider = Provider.of<UserProvider>(context, listen: true);
@@ -108,7 +129,7 @@ class MatcheState extends State<Matche> {
       child: Scaffold(
         appBar: AppBar(
           scrolledUnderElevation: 0,
-          backgroundColor: Colors.transparent,
+          backgroundColor: _appBarColor,
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: appBarTitle(translations!["MATCH"]),
@@ -126,6 +147,7 @@ class MatcheState extends State<Matche> {
                     children: [
                       Expanded(
                         child: ListView.builder(
+                          controller: _scrollController,
                           itemCount: players.length,
                           itemBuilder: (context, index) {
                             final player = players[index];

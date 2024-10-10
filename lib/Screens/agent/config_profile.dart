@@ -365,19 +365,16 @@ class _ConfigProfileState extends State<ConfigProfile> {
                       if (value.length < 8) {
                         return translations!['pssw_8_characters'];
                       }
-                      if (!value.contains(RegExp(r'[A-Z]'))) {
-                        return translations!['pssw_mayus_letter'];
-                      }
-                      if (!value.contains(RegExp(r'[a-z]'))) {
-                        return translations!['pssw_minus_letter'];
-                      }
-                      if (!value.contains(RegExp(r'[0-9]'))) {
-                        return translations!['pssw_number'];
-                      }
+                      // if (!value.contains(RegExp(r'[A-Z]'))) {
+                      //   return translations!['pssw_mayus_letter'];
+                      // }
+                      // if (!value.contains(RegExp(r'[a-z]'))) {
+                      //   return translations!['pssw_minus_letter'];
+                      // }
+                      // if (value.replaceAll(RegExp(r'\D'), '').length < 8) {
+                      //   return translations!['pssw_number'];
+                      // }
 
-                      if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-                        return translations!['pssw_special'];
-                      }
                       return null;
                     },
                   ),
@@ -431,7 +428,7 @@ class _ConfigProfileState extends State<ConfigProfile> {
                   children: [
                     CustomTextButton(
                       onTap: () => Navigator.of(context).pop(),
-                      text: translations!['Cancelar'],
+                      text: translations!['cancel'],
                       buttonPrimary: false,
                       width: 90,
                       height: 27,

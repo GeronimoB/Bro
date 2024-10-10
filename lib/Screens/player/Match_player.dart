@@ -31,6 +31,32 @@ class MatcheState extends State<MatchePlayer> {
   late UserProvider provider;
   late UserModel user;
   bool isLoading = false;
+  final ScrollController _scrollController = ScrollController();
+  Color _appBarColor = Colors.transparent;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    if (_scrollController.offset > 50) {
+      setState(() {
+        _appBarColor = Colors.black.withOpacity(0.9);
+      });
+    } else {
+      setState(() {
+        _appBarColor = Colors.transparent;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   Future<void> fetchPlayerMatches(String currentUserId) async {
     setState(() {
@@ -79,11 +105,6 @@ class MatcheState extends State<MatchePlayer> {
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     provider = Provider.of<UserProvider>(context, listen: true);
@@ -107,7 +128,7 @@ class MatcheState extends State<MatchePlayer> {
       child: Scaffold(
         appBar: AppBar(
           scrolledUnderElevation: 0,
-          backgroundColor: Colors.transparent,
+          backgroundColor: _appBarColor,
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: appBarTitle(translations!["MATCH"]),
@@ -125,6 +146,7 @@ class MatcheState extends State<MatchePlayer> {
                     children: [
                       Expanded(
                         child: ListView.builder(
+                          controller: _scrollController,
                           itemCount: _isSelected.length,
                           itemBuilder: (context, index) {
                             final agente = agentes[index];
@@ -134,7 +156,7 @@ class MatcheState extends State<MatchePlayer> {
                       ),
                     ],
                   )
-                :  Center(
+                : Center(
                     child: Text(
                       translations!["NoMatchesYet!"],
                       style: const TextStyle(

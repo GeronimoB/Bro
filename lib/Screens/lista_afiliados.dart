@@ -105,12 +105,12 @@ class ListaReferidosScreenState extends State<ListaReferidosScreen> {
                 onTap: () {
                   Clipboard.setData(ClipboardData(
                       text:
-                          'https://panel-bro.vercel.app/ref/${user.referralCode}'));
+                          'https://panelsys.bro.futbol/ref/${user.referralCode}'));
                   showSucessSnackBar(
                       context, translations!["AffiliateLinkCopiedMessage"]);
                 },
                 child: Text(
-                  'https://panel-bro.vercel.app/ref/${user.referralCode}',
+                  'https://panelsys.bro.futbol/ref/${user.referralCode}',
                   style: const TextStyle(
                     color: Color(0xFF05FF00),
                     fontFamily: 'Montserrat',

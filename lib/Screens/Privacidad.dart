@@ -242,10 +242,6 @@ class Privacidad extends StatelessWidget {
                       if (!value.contains(RegExp(r'[0-9]'))) {
                         return 'La contraseña debe contener al menos un número.';
                       }
-
-                      if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-                        return 'La contraseña debe contener al menos un carácter especial.';
-                      }
                       return null;
                     },
                   ),

@@ -1,10 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:bro_app_to/Screens/metodo_pago_screen.dart';
 import 'package:bro_app_to/components/app_bar_title.dart';
 import 'package:bro_app_to/components/avatar_placeholder.dart';
-import 'package:bro_app_to/components/custom_box_shadow.dart';
 import 'package:bro_app_to/Screens/planes_pago.dart';
 import 'package:bro_app_to/components/planes_cuenta_widget.dart';
 import 'package:bro_app_to/providers/user_provider.dart';
@@ -14,7 +12,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:bro_app_to/components/custom_text_button.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -38,12 +35,33 @@ class CuentaPageState extends State<CuentaPage> {
   bool _isExpanded = false;
   late UserProvider userProvider;
   late PlayerProvider playerProvider;
+  final ScrollController _scrollController = ScrollController();
+  Color _appBarColor = Colors.transparent;
 
   @override
   void initState() {
     super.initState();
+    _scrollController.addListener(_onScroll);
     userProvider = Provider.of<UserProvider>(context, listen: false);
     playerProvider = Provider.of<PlayerProvider>(context, listen: false);
+  }
+
+  void _onScroll() {
+    if (_scrollController.offset > 50) {
+      setState(() {
+        _appBarColor = Colors.black.withOpacity(0.9);
+      });
+    } else {
+      setState(() {
+        _appBarColor = Colors.transparent;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   Future<void> _openGallery() async {
@@ -90,10 +108,10 @@ class CuentaPageState extends State<CuentaPage> {
     String shortInfo =
         '${provincesByCountry[player.pais][player.provincia]}, ${countries[player.pais]}\n ${translations!["birthdate"]}: $formattedDate';
     String fullInfo =
-        '${provincesByCountry[player.pais][player.provincia]}, ${countries[player.pais]}\n ${translations!["birthdate"]}: $formattedDate\n ${translations!["Categorys"]}: ${categorias[player.categoria]}\n ${translations!["position_label"]}: ${player.position}\n ${translations!["club_label"]}: ${player.club}\n ${translations!["national_selection_short"]}: ${selecciones[player.seleccionNacional]} ${nationalCategories[player.seleccionNacional][player.categoriaSeleccion]}\n ${translations!["dominant_feet"]}: ${piesDominantes[player.pieDominante]} \n ${translations!["Achievements2"]}: ${player.logrosIndividuales}  \n ${translations!["height_label"]}: ${player.altura}';
+        '${provincesByCountry[player.pais][player.provincia]}, ${countries[player.pais]}\n ${translations!["birthdate"]}: $formattedDate\n ${translations!["Categorys"]}: ${categorias[player.categoria]}\n ${posiciones[translations!["position_label"]]}: ${player.position}\n ${translations!["club_label"]}: ${player.club}\n ${translations!["national_selection_short"]}: ${selecciones[player.seleccionNacional]} ${nationalCategories[player.seleccionNacional][player.categoriaSeleccion]}\n ${translations!["dominant_feet"]}: ${piesDominantes[player.pieDominante]} \n ${translations!["Achievements2"]}: ${player.logrosIndividuales}  \n ${translations!["height_label"]}: ${player.altura}';
 
     double width = MediaQuery.of(context).size.width;
-    print(width);
+
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -108,7 +126,7 @@ class CuentaPageState extends State<CuentaPage> {
       child: Scaffold(
         appBar: AppBar(
           scrolledUnderElevation: 0,
-          backgroundColor: Colors.transparent,
+          backgroundColor: _appBarColor,
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: appBarTitle(translations!["ACCOUNT"]),
@@ -124,6 +142,7 @@ class CuentaPageState extends State<CuentaPage> {
         backgroundColor: Colors.transparent,
         extendBody: true,
         body: SingleChildScrollView(
+          controller: _scrollController,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

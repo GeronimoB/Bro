@@ -112,7 +112,8 @@ class _MetodoDePagoScreenState extends State<MetodoDePagoScreen> {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        AgregarTarjetaScreen(valueToPay: valueToPay, cupon: couponToSend),
+                        //AgregarTarjetaScreen(valueToPay: valueToPay, cupon: couponToSend),
+                        AgregarTarjetaScreen(),
                   ),
                 );
               },

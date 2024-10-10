@@ -39,12 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Future<bool> validateAndCheckEmail(BuildContext context, String email,
       String name, String lastName, DateTime fecha, String password) async {
-    if (email.isEmpty ||
-        lastName.isEmpty ||
-        fecha == DateTime.now() ||
-        password.isEmpty ||
-        name.isEmpty ||
-        directionController.text.isEmpty) {
+    if (email.isEmpty || lastName.isEmpty || password.isEmpty || name.isEmpty) {
       showErrorSnackBar(context, translations!['complete_all_fields']);
 
       return false;
@@ -275,23 +270,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         if (value.length < 8) {
                           return translations!['pssw_8_characters'];
                         }
-                        // Verifica si contiene al menos una mayúscula
-                        if (!value.contains(RegExp(r'[A-Z]'))) {
-                          return translations!['pssw_mayus_letter'];
-                        }
-                        // Verifica si contiene al menos una minúscula
-                        if (!value.contains(RegExp(r'[a-z]'))) {
-                          return translations!['pssw_minus_letter'];
-                        }
-                        // Verifica si contiene al menos un número
-                        if (!value.contains(RegExp(r'[0-9]'))) {
-                          return translations!['pssw_number'];
-                        }
-                        // Verifica si contiene al menos un carácter especial
-                        if (!value
-                            .contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-                          return translations!['pssw_special'];
-                        }
+                        // if (!value.contains(RegExp(r'[A-Z]'))) {
+                        //   return translations!['pssw_mayus_letter'];
+                        // }
+                        // if (!value.contains(RegExp(r'[a-z]'))) {
+                        //   return translations!['pssw_minus_letter'];
+                        // }
+                        // if (value.replaceAll(RegExp(r'\D'), '').length < 8) {
+                        //   return translations!['pssw_number'];
+                        // }
                         return null; // Retorna null si la contraseña cumple con todos los requisitos
                       },
                     ),

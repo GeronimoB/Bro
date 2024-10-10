@@ -12,7 +12,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:bro_app_to/Screens/intro.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -32,8 +31,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  Stripe.publishableKey = ApiConstants.stripePublicKey;
-  await Stripe.instance.applySettings();
+
   List<NotificationModel> notificaciones = await getSavedNotifications();
   if (notificaciones.isNotEmpty) {
     currentNotifications.addAll(notificaciones.reversed);

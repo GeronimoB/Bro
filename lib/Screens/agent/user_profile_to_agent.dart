@@ -89,7 +89,7 @@ class PlayerProfileToAgentState extends State<PlayerProfileToAgent> {
     String shortInfo =
         '${provincesByCountry[player?.pais][player?.provincia]}, ${countries[player?.pais]}\n ${translations!["birthdate"]}: $formattedDate';
     String fullInfo =
-        '${provincesByCountry[player?.pais][player?.provincia]}, ${countries[player?.pais]}\n ${translations!["birthdate"]}: $formattedDate\n ${translations!["Categorys"]}: ${categorias[player?.categoria]}\n ${translations!["position_label"]}: ${player?.position}\n ${translations!["club_label"]}: ${player?.club}\n ${translations!["national_selection_short"]}: ${selecciones[player?.seleccionNacional]} ${nationalCategories[player?.seleccionNacional][player?.categoriaSeleccion]}\n ${translations!["dominant_feet"]}: ${piesDominantes[player?.pieDominante]} \n ${translations!["Achievements2"]}: ${player?.logrosIndividuales}  \n ${translations!["height_label"]}: ${player?.altura}';
+        '${provincesByCountry[player?.pais][player?.provincia]}, ${countries[player?.pais]}\n ${translations!["birthdate"]}: $formattedDate\n ${translations!["Categorys"]}: ${categorias[player?.categoria]}\n ${posiciones[translations!["position_label"]]}: ${player?.position}\n ${translations!["club_label"]}: ${player?.club}\n ${translations!["national_selection_short"]}: ${selecciones[player?.seleccionNacional]} ${nationalCategories[player?.seleccionNacional][player?.categoriaSeleccion]}\n ${translations!["dominant_feet"]}: ${piesDominantes[player?.pieDominante]} \n ${translations!["Achievements2"]}: ${player?.logrosIndividuales}  \n ${translations!["height_label"]}: ${player?.altura}';
 
     return Container(
       decoration: const BoxDecoration(
@@ -190,7 +190,7 @@ class PlayerProfileToAgentState extends State<PlayerProfileToAgent> {
               child: Text(
                 _isExpanded
                     ? translations!['seeLess']
-                    : translations!['seseeMoreeLess'],
+                    : translations!['seeMore'],
                 style: const TextStyle(
                     color: Color(0xFF05FF00),
                     fontSize: 16.0,
